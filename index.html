@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WEBSITE</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <style>
         body {
             background-color: #000;
@@ -71,16 +72,17 @@
             border-radius: 10px;
         }
         #video-container {
-            flex: 1;
-            width: 80%;
-            height: 90vh;
-            position: relative;
-            left: 17%;
-            top: -76vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    width: 100%;
+    height: auto;
+    background: black;
+}
+
+#video {
+    width: 100%;
+    height: auto;
+}
+
+
     </style>
 </head>
 <body>
@@ -96,28 +98,21 @@
     </nav>
     <section id="channel-list">
         <h2>Channels</h2>
-    <div class="channel">
-        <a href="http://webtv.dodear.asia:88/arynewssd/index.m3u8">
-        <img src="LOGO/ARY News.jpg" alt="Ary News">
-        </a>
-    </div>
-    <div class="channel">
-        <a href="http://webtv.dodear.asia:88/arydigitalhd/index.m3u8">
-        <img src="LOGO/download (4).jpg" alt="Ary Digital">
-        </a>
-    </div>
-    <div class="channel">
-        <a href="http://webtv.dodear.asia:88/92newshdddr/index.m3u8">
-        <img src="LOGO/images.png" alt="92 News">
-        </a>
-    </div>
-    <div class="channel">
-        <a href="http://webtv.dodear.asia:88/24newshd/index.m3u8">
-        <img src="LOGO/download.jpg" alt="24 News">
-        </a>
-    </div>
+    <div class="channel" data-url="http://webtv.dodear.asia:88/arynewssd/index.m3u8">
+    <img src="LOGO/ARY News.jpg" alt="Ary News">
+</div>
+<div class="channel" data-url="http://webtv.dodear.asia:88/arydigitalhd/index.m3u8">
+    <img src="LOGO/download (4).jpg" alt="Ary Digital">
+</div>
+<div class="channel" data-url="http://webtv.dodear.asia:88/92newshdddr/index.m3u8">
+    <img src="LOGO/images.png" alt="92 News">
+</div>
+<div class="channel" data-url="http://webtv.dodear.asia:88/24newshd/index.m3u8">
+    <img src="LOGO/download.jpg" alt="24 News">
+</div>
+
     <div id="video-container">
-        <video id="video" controls autoplay></video>
+        <video id="video" controls autoplay playsinline></video>
     </div>
     </section>
     
