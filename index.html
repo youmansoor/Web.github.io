@@ -47,11 +47,13 @@
             border-radius: 10px;
         }
         #channel-list {
+          display: flex;
+            flex-wrap: wrap;
             margin: 1.3vh;
             text-align: center;
             align-items: center;
             background-color: #004;
-            width: 90%;
+            width: 100%;
             justify-self: end;
             border-radius: 10px;
         }
@@ -89,29 +91,121 @@
     align-items: center;
     padding: 1vh;
 }
-
+@media (max-width: 768px) {
+        nav {
+          display: none;
+            width: 9%;
+            height: auto;
+            position: relative;
+        }
+        nav ul {
+            justify-content: space-around;
+        }
+        #channel-list {
+            width: 100%;
+            /* margin-top: 10vh; */
+        }
+        .channel {
+            width: 20%; 
+            /* margin: 1vh; */
+        }
+        .title {
+            font-size: 4vh;
+        }
+        #title {
+            font-size: 2vh;
+        }
+        header {
+            width: 100%;
+            padding: 2vh;
+        }
+        #video {
+            width: 50%;
+            height: auto;
+        }
+        #video-container {
+            height: 50vh; /* Adjust for smaller screens */
+        }
+        nav ul li {
+            padding: 1vh;
+        }
+        nav ul li img {
+            width: 0.3vh;
+            height: 0.3vh;
+        }
+        .channel img {
+            width: 100%;
+            height: auto;
+        }
+}
+@media (max-width: 425px) {
+        .title {
+            font-size: 3vh;
+        }
+        #title {
+            font-size: 1.5vh;
+        }
+        header {
+            width: 100%;
+            padding: 1vh;
+        }
+        #video {
+            width: 100%;
+            height: auto;
+        }
+        #video-container {
+            height: 40vh; /* Adjust for smaller screens */
+        }
+        .channel {
+            width: 18%; /* Adjust for smaller screens */
+            margin: 1vh;
+        }
+}
+@media (max-width: 2560px) {
+        .title {
+            font-size: 2vh;
+        }
+        #title {
+            font-size: 1vh;
+        }
+        header {
+            width: 100%;
+            padding: 1vh;
+        }
+        #video {
+            width: 100%;
+            height: auto;
+        }
+        #video-container {
+            height: 30vh; /* Adjust for smaller screens */
+        }
+        .channel {
+            width: 20%; /* Adjust for smaller screens */
+            margin: 0.5vh;
+        }
+}
     </style>
 </head>
 <body>
     <header>
         <h1 class="title">P<span id="title">AK</span>L<span id="title">IVE</span>T<span id="title">V</span>.</h1>
     </header>
-    <nav>
+    <!-- <nav>
         <ul>
             <li><a href="index.html"><img src="bx-home-alt-2.svg" alt=""></a></li>
             <li><a href="#"><img src="bx-broadcast.svg" alt=""></a></li>
             <li><a href="#"><img src="bx-bookmarks.svg" alt=""></a></li>
         </ul>
-    </nav>
+    </nav> -->
     <section id="channel-list">
         <h2>Channels</h2>
         <div id="video-container">
         <video id="video" width="640" height="360" controls autoplay playsinline></video>
     <div id="channel-box">
-        <div class="channel" data-url="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8">
+        <!-- <div class="channel" data-url="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8">
   <img src="https://via.placeholder.com/150?text=Test+Stream" alt="Test Stream">
-</div>
-    <div class="channel" data-url="https://tamashaweb.com/ary-news">
+</div> -->
+    <div class="channel" data-url="http://webtv.dodear.asia:88/arynewssd/index.m3u8">
     <img src="LOGO/ARY News.jpg" alt="Ary News">
 </div>
 <div class="channel" data-url="http://webtv.dodear.asia:88/arydigitalhd/index.m3u8">
@@ -126,13 +220,52 @@
 <div class="channel" data-url="http://webtv.dodear.asia:88/neonewshd/index.m3u8">
     <img src="LOGO/download (5).jpg" alt="Neo News">
 </div>
-<div class="channel" data-url="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8">
+<!-- <div class="channel" data-url="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8">
   <img src="https://via.placeholder.com/150?text=Test+Stream" alt="Test Stream">
+</div> -->
+    <!-- <div class="channel" data-url="http://webtv.dodear.asia:88/geonewshdddr/index.m3u8">
+    <img src="LOGO/GEO News.jpg" alt="Geo News">
+</div> -->
+<div class="channel" data-url="https://youtu.be/O3DPVlynUM0">
+    <img src="LOGO/GEO News.jpg" alt="Geo News">
 </div>
-    <div class="channel" data-url="https://tamashaweb.com/ary-news">
-    <img src="LOGO/ARY News.jpg" alt="Ary News">
+<div class="channel" data-url="http://webtv.dodear.asia:88/bolnewshd/index.m3u8">
+    <img src="LOGO/Bol News.png" alt="Ary Digital">
 </div>
-<div class="channel" data-url="http://webtv.dodear.asia:88/arydigitalhd/index.m3u8">
+<div class="channel" data-url="http://webtv.dodear.asia:88/dunyanewshd/index.m3u8">
+    <img src="LOGO/Dunya News.jpg" alt="Dunya News">
+</div>
+<div class="channel" data-url="http://webtv.dodear.asia:88/samaanewssdddr/index.m3u8">
+    <img src="LOGO/download (1).jpg" alt="Samaa News">
+</div>
+<div class="channel" data-url="http://webtv.dodear.asia:88/sunonewshd/index.m3u8">
+    <img src="LOGO/download (3).jpg" alt="Suno News">
+</div>
+<!-- <div class="channel" data-url="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8">
+  <img src="https://via.placeholder.com/150?text=Test+Stream" alt="Test Stream">
+</div> -->
+    <div class="channel" data-url="http://webtv.dodear.asia:88/dawnnewssd/index.m3u8">
+    <img src="LOGO/download (9).jpg" alt="Dawn News">
+</div>
+<div class="channel" data-url="http://webtv.dodear.asia:88/humnewshd/index.m3u8">
+    <img src="LOGO/download.jpg" alt="Ary Digital">
+</div>
+<div class="channel" data-url="http://webtv.dodear.asia:88/aajtvsd/index.m3u8">
+    <img src="LOGO/AAJ TV.png" alt="AAj News">
+</div>
+<div class="channel" data-url="http://webtv.dodear.asia:88/expressnewssd/index.m3u8">
+    <img src="LOGO/download (2).jpg" alt="Express News">
+</div>
+<div class="channel" data-url="http://webtv.dodear.asia:88/ptvsportssd/index.m3u8">
+    <img src="LOGO/download (8).jpg" alt="Ptv Sports News">
+</div>
+<!-- <div class="channel" data-url="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8">
+  <img src="https://via.placeholder.com/150?text=Test+Stream" alt="Test Stream">
+</div> -->
+    <div class="channel" data-url="http://webtv.dodear.asia:88/asportssd/index.m3u8">
+    <img src="LOGO/download (6).jpg" alt="A sports">
+</div>
+<!-- <div class="channel" data-url="http://webtv.dodear.asia:88/arydigitalhd/index.m3u8">
     <img src="LOGO/download (4).jpg" alt="Ary Digital">
 </div>
 <div class="channel" data-url="http://webtv.dodear.asia:88/92newshdddr/index.m3u8">
@@ -143,43 +276,7 @@
 </div>
 <div class="channel" data-url="http://webtv.dodear.asia:88/neonewshd/index.m3u8">
     <img src="LOGO/download (5).jpg" alt="Neo News">
-</div>
-<div class="channel" data-url="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8">
-  <img src="https://via.placeholder.com/150?text=Test+Stream" alt="Test Stream">
-</div>
-    <div class="channel" data-url="https://tamashaweb.com/ary-news">
-    <img src="LOGO/ARY News.jpg" alt="Ary News">
-</div>
-<div class="channel" data-url="http://webtv.dodear.asia:88/arydigitalhd/index.m3u8">
-    <img src="LOGO/download (4).jpg" alt="Ary Digital">
-</div>
-<div class="channel" data-url="http://webtv.dodear.asia:88/92newshdddr/index.m3u8">
-    <img src="LOGO/images.png" alt="92 News">
-</div>
-<div class="channel" data-url="http://webtv.dodear.asia:88/24newshd/index.m3u8">
-    <img src="LOGO/download.jpg" alt="24 News">
-</div>
-<div class="channel" data-url="http://webtv.dodear.asia:88/neonewshd/index.m3u8">
-    <img src="LOGO/download (5).jpg" alt="Neo News">
-</div>
-<div class="channel" data-url="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8">
-  <img src="https://via.placeholder.com/150?text=Test+Stream" alt="Test Stream">
-</div>
-    <div class="channel" data-url="https://tamashaweb.com/ary-news">
-    <img src="LOGO/ARY News.jpg" alt="Ary News">
-</div>
-<div class="channel" data-url="http://webtv.dodear.asia:88/arydigitalhd/index.m3u8">
-    <img src="LOGO/download (4).jpg" alt="Ary Digital">
-</div>
-<div class="channel" data-url="http://webtv.dodear.asia:88/92newshdddr/index.m3u8">
-    <img src="LOGO/images.png" alt="92 News">
-</div>
-<div class="channel" data-url="http://webtv.dodear.asia:88/24newshd/index.m3u8">
-    <img src="LOGO/download.jpg" alt="24 News">
-</div>
-<div class="channel" data-url="http://webtv.dodear.asia:88/neonewshd/index.m3u8">
-    <img src="LOGO/download (5).jpg" alt="Neo News">
-</div>
+</div> -->
 </div>
     </section>
     
