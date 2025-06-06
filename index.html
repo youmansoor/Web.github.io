@@ -1,340 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WEBSITE</title>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <style>
-        body {
-            background-color: #000;
-            color: #fff;
-        }
-        header {
-            justify-self: end;
-            background-color: #003;
-            border-radius: 15px;
-            width: 90%;
-            padding: 1vh;
-        }
-        .title {
-            font-size: 6vh;
-            color: #0000ff;
-        }
-        #title {
-            font-size: 3vh;
-            color: #fff; 
-        }
-        nav {
-            background-color: #003;
-            border-radius: 15px;
-            width: 8%;
-            height: 100vh;
-            padding: 1vh;
-            position: fixed;
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        nav ul li {
-            margin: 0vh 2vh;
-            padding: 3vh;
-            align-items: center;
-        }
-        nav ul li :hover {
-            background-color: #005;
-            border-radius: 10px;
-        }
-        #channel-list {
-          display: flex;
-            flex-wrap: wrap;
-            margin: 1.3vh;
-            text-align: center;
-            align-items: center;
-            background-color: #004;
-            width: 100%;
-            justify-self: end;
-            border-radius: 10px;
-        }
-        .channel {
-            display: flex;
-            flex-wrap: nowrap;
-            margin: 2vh;
-            padding: 1vh;
-            background-color: #053;
-            justify-content: center;
-            border-radius: 10px;
-            width: 12%;
-            height: 15vh;
-        }
-        .channel img {
-            width: 100%;
-            height: 100%;
-            border-radius: 10px;
-        }
-        #video-container {
-    width: 100%;
-    height: auto;
-    background: black;
-}
-
-#video {
-    width: 100%;
-    height: auto;
-}
-#channel-box {
-  background-color: #004;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 1vh;
-}
-@media (max-width: 768px) {
-        nav {
-          display: none;
-            width: 9%;
-            height: auto;
-            position: relative;
-        }
-        nav ul {
-            justify-content: space-around;
-        }
-        #channel-list {
-            width: 100%;
-            /* margin-top: 10vh; */
-        }
-        .channel {
-            width: 20%; 
-            /* margin: 1vh; */
-        }
-        .title {
-            font-size: 4vh;
-        }
-        #title {
-            font-size: 2vh;
-        }
-        header {
-            width: 100%;
-            padding: 2vh;
-        }
-        #video {
-            width: 50%;
-            height: auto;
-        }
-        #video-container {
-            height: 50vh; /* Adjust for smaller screens */
-        }
-        nav ul li {
-            padding: 1vh;
-        }
-        nav ul li img {
-            width: 0.3vh;
-            height: 0.3vh;
-        }
-        .channel img {
-            width: 100%;
-            height: auto;
-        }
-}
-@media (max-width: 425px) {
-        .title {
-            font-size: 3vh;
-        }
-        #title {
-            font-size: 1.5vh;
-        }
-        header {
-            width: 100%;
-            padding: 1vh;
-        }
-        #video {
-            width: 100%;
-            height: auto;
-        }
-        #video-container {
-            height: 40vh; /* Adjust for smaller screens */
-        }
-        .channel {
-            width: 18%; /* Adjust for smaller screens */
-            margin: 1vh;
-        }
-}
-@media (max-width: 2560px) {
-        .title {
-            font-size: 2vh;
-        }
-        #title {
-            font-size: 1vh;
-        }
-        header {
-            width: 100%;
-            padding: 1vh;
-        }
-        #video {
-            width: 100%;
-            height: auto;
-        }
-        #video-container {
-            height: 30vh; /* Adjust for smaller screens */
-        }
-        .channel {
-            width: 20%; /* Adjust for smaller screens */
-            margin: 0.5vh;
-        }
-}
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAKLIVETV</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+    header {
+      background-color: #003;
+      border-radius: 15px;
+      padding: 1vh;
+      text-align: center;
+    }
+    .title {
+      font-size: 6vh;
+      color: #0000ff;
+    }
+    #title {
+      font-size: 3vh;
+      color: #fff; 
+    }
+    #channel-box {
+      background-color: #004;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2vh;
+      padding: 2vh;
+    }
+    .channel {
+      background-color: #053;
+      border-radius: 10px;
+      overflow: hidden;
+      width: 12%;
+      min-width: 150px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .channel:hover {
+      transform: scale(1.05);
+    }
+    .channel img {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+    }
+    @media (max-width: 768px) {
+      .channel {
+        width: 30%;
+      }
+    }
+    @media (max-width: 425px) {
+      .channel {
+        width: 45%;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1 class="title">P<span id="title">AK</span>L<span id="title">IVE</span>T<span id="title">V</span>.</h1>
-    </header>
-    <!-- <nav>
-        <ul>
-            <li><a href="index.html"><img src="bx-home-alt-2.svg" alt=""></a></li>
-            <li><a href="#"><img src="bx-broadcast.svg" alt=""></a></li>
-            <li><a href="#"><img src="bx-bookmarks.svg" alt=""></a></li>
-        </ul>
-    </nav> -->
-    <section id="channel-list">
-        <h2>Channels</h2>
-        <div id="video-container">
-        <video id="video" width="640" height="360" controls autoplay playsinline></video>
-    <div id="channel-box">
-        <!-- <div class="channel" data-url="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8">
-  <img src="https://via.placeholder.com/150?text=Test+Stream" alt="Test Stream">
-</div> -->
+  <header>
+    <h1 class="title">P<span id="title">AK</span>L<span id="title">IVE</span>T<span id="title">V</span>.</h1>
+  </header>
+
+  <section id="channel-box">
     <div class="channel" data-url="http://webtv.dodear.asia:88/arynewssd/index.m3u8">
-    <img src="LOGO/ARY News.jpg" alt="Ary News">
-</div>
-<div class="channel" data-url="http://webtv.dodear.asia:88/arydigitalhd/index.m3u8">
-    <img src="LOGO/download (4).jpg" alt="Ary Digital">
-</div>
-<div class="channel" data-url="http://webtv.dodear.asia:88/92newshdddr/index.m3u8">
-    <img src="LOGO/images.png" alt="92 News">
-</div>
-<div class="channel" data-url="http://webtv.dodear.asia:88/24newshd/index.m3u8">
-    <img src="LOGO/download.jpg" alt="24 News">
-</div>
-<div class="channel" data-url="http://webtv.dodear.asia:88/neonewshd/index.m3u8">
-    <img src="LOGO/download (5).jpg" alt="Neo News">
-</div>
-<!-- <div class="channel" data-url="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8">
-  <img src="https://via.placeholder.com/150?text=Test+Stream" alt="Test Stream">
-</div> -->
-    <!-- <div class="channel" data-url="http://webtv.dodear.asia:88/geonewshdddr/index.m3u8">
-    <img src="LOGO/GEO News.jpg" alt="Geo News">
-</div> -->
-<div class="channel" data-url="https://youtu.be/O3DPVlynUM0">
-    <img src="LOGO/GEO News.jpg" alt="Geo News">
-</div>
-<div class="channel" data-url="http://webtv.dodear.asia:88/bolnewshd/index.m3u8">
-    <img src="LOGO/Bol News.png" alt="Ary Digital">
-</div>
-<div class="channel" data-url="http://webtv.dodear.asia:88/dunyanewshd/index.m3u8">
-    <img src="LOGO/Dunya News.jpg" alt="Dunya News">
-</div>
-<div class="channel" data-url="http://webtv.dodear.asia:88/samaanewssdddr/index.m3u8">
-    <img src="LOGO/download (1).jpg" alt="Samaa News">
-</div>
-<div class="channel" data-url="http://webtv.dodear.asia:88/sunonewshd/index.m3u8">
-    <img src="LOGO/download (3).jpg" alt="Suno News">
-</div>
-<!-- <div class="channel" data-url="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8">
-  <img src="https://via.placeholder.com/150?text=Test+Stream" alt="Test Stream">
-</div> -->
-    <div class="channel" data-url="http://webtv.dodear.asia:88/dawnnewssd/index.m3u8">
-    <img src="LOGO/download (9).jpg" alt="Dawn News">
-</div>
-<div class="channel" data-url="http://webtv.dodear.asia:88/humnewshd/index.m3u8">
-    <img src="LOGO/download.jpg" alt="Ary Digital">
-</div>
-<div class="channel" data-url="http://webtv.dodear.asia:88/aajtvsd/index.m3u8">
-    <img src="LOGO/AAJ TV.png" alt="AAj News">
-</div>
-<div class="channel" data-url="http://webtv.dodear.asia:88/expressnewssd/index.m3u8">
-    <img src="LOGO/download (2).jpg" alt="Express News">
-</div>
-<div class="channel" data-url="http://webtv.dodear.asia:88/ptvsportssd/index.m3u8">
-    <img src="LOGO/download (8).jpg" alt="Ptv Sports News">
-</div>
-<!-- <div class="channel" data-url="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8">
-  <img src="https://via.placeholder.com/150?text=Test+Stream" alt="Test Stream">
-</div> -->
-    <div class="channel" data-url="http://webtv.dodear.asia:88/asportssd/index.m3u8">
-    <img src="LOGO/download (6).jpg" alt="A sports">
-</div>
-<!-- <div class="channel" data-url="http://webtv.dodear.asia:88/arydigitalhd/index.m3u8">
-    <img src="LOGO/download (4).jpg" alt="Ary Digital">
-</div>
-<div class="channel" data-url="http://webtv.dodear.asia:88/92newshdddr/index.m3u8">
-    <img src="LOGO/images.png" alt="92 News">
-</div>
-<div class="channel" data-url="http://webtv.dodear.asia:88/24newshd/index.m3u8">
-    <img src="LOGO/download.jpg" alt="24 News">
-</div>
-<div class="channel" data-url="http://webtv.dodear.asia:88/neonewshd/index.m3u8">
-    <img src="LOGO/download (5).jpg" alt="Neo News">
-</div> -->
-</div>
-    </section>
-    
-    <script>
-  const video = document.getElementById('video');
-  const channels = document.querySelectorAll('.channel');
-  let hls;
+      <img src="LOGO/ARY News.jpg" alt="ARY News">
+    </div>
+    <div class="channel" data-url="http://webtv.dodear.asia:88/arydigitalhd/index.m3u8">
+      <img src="LOGO/download (4).jpg" alt="ARY Digital">
+    </div>
+    <div class="channel" data-url="http://webtv.dodear.asia:88/92newshdddr/index.m3u8">
+      <img src="LOGO/images.png" alt="92 News">
+    </div>
+    <div class="channel" data-url="http://webtv.dodear.asia:88/dunyanewshd/index.m3u8">
+      <img src="LOGO/Dunya News.jpg" alt="Dunya News">
+    </div>
+    <div class="channel" data-url="http://webtv.dodear.asia:88/expressnewssd/index.m3u8">
+      <img src="LOGO/download (2).jpg" alt="Express News">
+    </div>
+  </section>
 
-  function playStream(url) {
-    if (hls) {
-      hls.destroy();
+  <script>
+    document.querySelectorAll('.channel').forEach(channel => {
+  channel.addEventListener('click', () => {
+    const url = channel.getAttribute('data-url');
+    if (url) {
+      window.location.href = `player.html?stream=${encodeURIComponent(url)}`;
     }
-
-    if (Hls.isSupported()) {
-      hls = new Hls();
-      hls.loadSource(url);
-      hls.attachMedia(video);
-    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-      video.src = url;
-    } else {
-      alert("Your browser doesn't support HLS playback.");
-      return;
-    }
-
-    // Try to play and go fullscreen after loading
-    video.play().then(() => {
-      requestFullscreen(video);
-    }).catch(err => {
-      console.warn('Autoplay or fullscreen request failed:', err);
-    });
-  }
-
-  // Cross-browser fullscreen support
-  function requestFullscreen(element) {
-    if (element.requestFullscreen) {
-      element.requestFullscreen();
-    } else if (element.webkitRequestFullscreen) { // Safari
-      element.webkitRequestFullscreen();
-    } else if (element.msRequestFullscreen) { // IE11
-      element.msRequestFullscreen();
-    } else if (element.mozRequestFullScreen) { // Firefox
-      element.mozRequestFullScreen();
-    }
-  }
-
-  channels.forEach(channel => {
-    channel.addEventListener('click', () => {
-      const url = channel.getAttribute('data-url');
-      if (url) {
-        playStream(url);
-      }
-    });
   });
+});
 
-  window.onload = () => {
-    const first = channels[0].getAttribute('data-url');
-    if (first) playStream(first);
-  };
-</script>
+  </script>
 </body>
 </html>
